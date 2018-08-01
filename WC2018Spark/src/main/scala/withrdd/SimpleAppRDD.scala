@@ -9,9 +9,11 @@ import org.apache.spark.SparkContext
  */
 object SimpleAppRDD {
   def main(args: Array[String]): Unit = {
-    val txtFile = "/home/mlewis/Documents/Research/Papers/WorldCongress2017/WC2017Spark/src/main/scala/withrdd/SimpleAppRDD.scala"
-    val conf = new SparkConf().setAppName("Sample Application").setMaster("local[*]")
+    val txtFile = "src/main/scala/withrdd/SimpleAppRDD.scala"
+    val conf = new SparkConf().setAppName("Sample Application").
+      setMaster("local[*]")
     val sc = new SparkContext(conf)
+    sc.setLogLevel("WARN")
 
     val txtFileLines = sc.textFile(txtFile, 2).cache()
     val numVals = txtFileLines.filter(line => line.contains("val")).count()

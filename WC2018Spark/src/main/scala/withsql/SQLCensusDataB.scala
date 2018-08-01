@@ -7,6 +7,7 @@ import org.apache.spark.sql.functions._
 object SQLCensusDataB {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder.appName("Simple Application").master("local[*]").getOrCreate()
+    spark.sparkContext.setLogLevel("WARN")
     import spark.implicits._
     
     val schema = StructType(Array(

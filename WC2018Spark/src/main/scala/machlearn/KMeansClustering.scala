@@ -14,6 +14,7 @@ import org.apache.spark.ml.feature.Normalizer
 object KMeansClustering {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder.appName("Simple Application").master("local[*]").getOrCreate()
+    spark.sparkContext.setLogLevel("WARN")
     import spark.implicits._
 
     val csvData = spark.read.option("header", true).csv("data/LLCP2015.csv")

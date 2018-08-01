@@ -15,6 +15,7 @@ object MarvelGraph {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("Graph Application").setMaster("local[*]")
     val sc = new SparkContext(conf)
+    sc.setLogLevel("WARN")
 
     // Read in data
     val nodes = scala.io.Source.fromFile("data/nodes.csv").getLines.drop(1).map { line =>

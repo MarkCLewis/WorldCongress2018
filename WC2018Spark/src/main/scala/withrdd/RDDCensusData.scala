@@ -9,6 +9,7 @@ object RDDCensusData {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("Sample Application").setMaster("local[*]")
     val sc = new SparkContext(conf)
+    sc.setLogLevel("WARN")
 
     val csvFileLines = sc.textFile("data/adult.csv", 2).mapPartitionsWithIndex { (idx, iter) => if (idx == 0) iter.drop(1) else iter }
     val data = csvFileLines.map(CensusData.parseLine).cache()

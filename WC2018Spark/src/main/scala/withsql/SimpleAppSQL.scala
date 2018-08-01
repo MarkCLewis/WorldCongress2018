@@ -8,8 +8,9 @@ import org.apache.spark.sql.SparkSession
  */
 object SimpleAppSQL {
   def main(args: Array[String]): Unit = {
-    val txtFile = "/home/mlewis/Documents/Research/Papers/WorldCongress2017/WC2017Spark/src/main/scala/withsql/SimpleAppSQL.scala"
+    val txtFile = "src/main/scala/withsql/SimpleAppSQL.scala"
     val spark = SparkSession.builder.appName("Simple Application").master("local[*]").getOrCreate()
+    spark.sparkContext.setLogLevel("WARN")
 
     val logData = spark.read.textFile(txtFile).cache()
     val numVals = logData.filter(line => line.contains("val")).count()
