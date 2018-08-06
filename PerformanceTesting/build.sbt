@@ -1,6 +1,6 @@
 fork := true
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.5"
 
 lazy val root = (project in file("."))
   .settings(
@@ -17,7 +17,7 @@ lazy val root = (project in file("."))
 //    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.4" % "test",
 
 		libraryDependencies += "edu.trinity" %% "swiftvis2" % "0.1.0-SNAPSHOT",
-		libraryDependencies += "org.vegas-viz" %% "vegas" % "0.3.11",
+		//libraryDependencies += "org.vegas-viz" %% "vegas" % "0.3.11",
 		libraryDependencies += "io.github.pityka" %% "nspl-awt" % "0.0.19",
 		libraryDependencies += "org.scalanlp" %% "breeze-viz" % "0.13.2"
 
